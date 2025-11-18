@@ -53,19 +53,17 @@ const Hero = () => {
           initial="hidden"
           animate="visible"
         >
-          <motion.div className="hero-text" variants={itemVariants}>
+          <motion.div className="hero-text"  variants={itemVariants}>
             <motion.h1 className="hero-title" variants={itemVariants}>
               Hi, I'm <span className="highlight">Anup Lohar</span>
             </motion.h1>
 
-            <motion.h2 className="hero-subtitle" variants={itemVariants}>
-              Full-Stack Developer with React JS Expert
-            </motion.h2>
+            <motion.h1 className="hero-subtitle" variants={itemVariants}>
+              Full-Stack Developer | React.js Specialist 
+            </motion.h1>
 
-            <motion.p className="hero-description" variants={itemVariants}>
-              Created robust web applications with modern technologies.
-              Currently building scalable APIs and full-stack solutions at
-              LogicLoom IT Solutions.
+            <motion.p className="hero-description fw-bold" style={{fontFamily:"ui-sans-serif"}} variants={itemVariants}>
+              “I DON’T JUST CODE APPS — I BUILD EXPERIENCES THAT WORK FLAWLESSLY END-TO-END.”
             </motion.p>
 
             <motion.div className="hero-actions" variants={itemVariants}>
@@ -91,7 +89,7 @@ const Hero = () => {
               </motion.a>
             </motion.div>
 
-            <motion.div className="social-links" variants={itemVariants}>
+            {/* <motion.div className="social-links" variants={itemVariants}>
               <motion.a
                 href="https://github.com/anuplohar001"
                 target="_blank"
@@ -117,7 +115,7 @@ const Hero = () => {
               >
                 <Mail size={20} />
               </motion.a>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
 
           <motion.div className="hero-image" variants={itemVariants}>
