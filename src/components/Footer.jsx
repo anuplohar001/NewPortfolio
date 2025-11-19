@@ -7,9 +7,13 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com/adityadav171', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/in/adit-yadav-74794822a/', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:Adityadav171@gmail.com', label: 'Email' }
+    { icon: Github, href: "https://github.com/anuplohar001", label: "GitHub" },
+    {
+      icon: Linkedin,
+      href: "https://www.linkedin.com/in/anup-lohar-581b81212/",
+      label: "LinkedIn",
+    },
+    { icon: Mail, href: "mailto:anuplohar001@gmail.com", label: "Email" },
   ];
 
   const scrollToTop = () => {
@@ -28,8 +32,8 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <div className="footer-brand">
-              <h3>Adit Yadav</h3>
-              <p>Full-Stack Developer & Node.js Expert</p>
+              <h3>Anup Lohar</h3>
+              <p>Full-Stack Developer with React Js Specialist</p>
             </div>
 
             <div className="footer-links">
@@ -107,7 +111,7 @@ const Footer = () => {
         >
           <div className="footer-bottom-content">
             <p>
-              © {currentYear} Adit Yadav. Made with <Heart size={16} className="heart" /> using React & Framer Motion
+              © {currentYear} Anup Lohar. Made with <Heart size={16} className="heart" /> using React & Framer Motion
             </p>
             <motion.button
               className="scroll-top"

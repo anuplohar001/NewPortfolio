@@ -1,68 +1,164 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { MapPin, Calendar, Award, Building, Clock, Star, CheckCircle } from 'lucide-react';
-import '../styles/components/Experience.css';
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  MapPin,
+  Calendar,
+  Award,
+  Building,
+  Clock,
+  Star,
+  CheckCircle,
+} from "lucide-react";
+import "../styles/components/Experience.css";
+import { ExternalLink, Github, Users, Database, Shield } from "lucide-react";
+import "../styles/components/Projects.css";
 
 const Experience = () => {
   const experiences = [
     {
-      company: 'LogicLoom IT Solutions',
-      position: 'Node.js Developer',
-      duration: 'June 2025 - Present',
-      location: 'Remote',
-      type: 'Full-time',
+      company: "LogicLoom IT Solutions",
+      position: "React.js Developer",
+      duration: "July 2025 - Present",
+      location: "Remote",
+      type: "Internship",
       current: true,
-      description: 'Currently developing scalable backend solutions and optimizing database performance for enterprise applications.',
+      description: "",
       achievements: [
-        'Engineered 15+ robust RESTful APIs using Node.js and Express.js with JWT authentication, achieving 99.9% uptime',
-        'Optimized PostgreSQL database schemas using Sequelize ORM, improving query performance by 40% and reducing latency',
-        'Architected advanced API that converts natural language queries to JSON, enabling dynamic data fetching across 20+ tables'
+        "Created custom DayPilot calendar from scratch",
+        "Implemented Infinite scrolling and mulitple views (month,day)",
+        "Drag and Drop of events and enabling smooth navigation across large date ranges",
+        "Improved rendering time by ~50% using HTML Canvas for rendering 1000’s of cells",
+        "Created 50+ customised and interactive charts for dashboards using bootstrap only",
       ],
-      technologies: ['Node.js', 'Express.js', 'PostgreSQL', 'Sequelize ORM', 'JWT', 'RESTful APIs']
+      technologies: ["React.js"],
+    },
+  ];
+  const projects = [
+    {
+      title: "Deployment of 3-tier web app",
+      description: null,
+      video: null,
+      technologies: ["AWS", "DOCKER", "KUBERNETES", "AWS-EKS", "MERN"],
+      features: [
+        "Created EC2 instance using Terraform.",
+        "Maintained 3-tier application using Elastic Kubernetes Cluster.",
+        "Containerized web application using Docker & Created Pods using Kubernetes orchestration for auto scaling.",
+        "Reduced downtime by 65%, improved uptime by 99.5%. Scalable up to 10,000 concurrent users. ",
+      ],
+      github: "https://github.com/anuplohar001/AWS_3Tier_App_Deployment",
+      live: null,
+      image: "/images/projects/architecture.png",
+      duration: "Sept 2025 - Oct 2025",
+      type: "Self Driven",
+      featured: true,
     },
     {
-      company: 'OctaNet Services Pvt Ltd',
-      position: 'Software Developer Intern',
-      duration: 'June 2024 - July 2024',
-      location: 'Remote',
-      type: 'Internship',
-      current: false,
-      description: 'Developed responsive web applications and enhanced user experience through modern design practices.',
-      achievements: [
-        'Developed a comprehensive to-do list application using HTML, CSS, and JavaScript, improving task organization for 500+ users',
-        'Implemented advanced task management features with 30% faster task updates',
-        'Enhanced UI/UX with responsive design, reducing bounce rate by 25% on mobile devices'
+      title: "PromptsBook",
+      description: null,
+      image: null,
+      video: "/videos/prompts.mp4",
+      technologies: [
+        "Next.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "TailwindCSS",
       ],
-      technologies: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design', 'UI/UX']
-    }
+      features: [
+        "User can Create Posts and add Stories and Authenticated users can put Likes, Comments",
+        "Share Posts through integrated Real-Time Chatt Application programmed using WebSockets",
+        "Processed by 30+ API routes, maintained database using MongoDB and NodeJS, styled using Tailwind CSS.",
+        "Deployed on Vercel",
+      ],
+      github: "https://github.com/anuplohar001/PromptsBook",
+      live: "https://prompts-book.vercel.app/", // No live demo for SocialHub
+      duration: "Aug 2025 - Sept 2025",
+      type: "Self Driven",
+      featured: false,
+    },
+    {
+      title: "Sorting Visualiser",
+      description: null,
+      image: null,
+      video: "/videos/sorting.mp4",
+      technologies: ["React.js", "TailwindCSS", "DSA"],
+      features: [
+        "Visualises inner working of 6 main sorting algorithms",
+        "supports controls like speed of visualisation and size of array",
+        "Deployed on GitHub Pages",
+      ],
+      github: "https://github.com/anuplohar001/AlgoSort",
+      live: "https://anuplohar001.github.io/AlgoSort/", // No live demo for SocialHub
+      duration: "Aug 2025 - Sept 2025",
+      type: "Self Driven",
+      featured: false,
+    },
+    {
+      title: "Music Player",
+      description: null,
+      image: null,
+      video: "/videos/musicplayer.mp4",
+      technologies: ["HTML", "CSS", "JS"],
+      features: [
+        "Playlists of multiple singers Albums",
+        "Supports playback controls – Prev, Next, Play, Pause, Volume",
+        "Deployed on Vercel",
+      ],
+      github: "https://github.com/anuplohar001/BeatBox",
+      live: "https://beat-box-ten.vercel.app/", // No live demo for SocialHub
+      duration: "Aug 2025 - Sept 2025",
+      type: "Self Driven",
+      featured: false,
+    },
   ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 50, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.6 },
+    },
+  };
 
   return (
     <section id="experience" className="experience">
-      <div className="container">
+      <div className="container mt-0">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="section-header"
         >
-          <h2>Experience & Education</h2>
-          <p>My professional journey and academic achievements</p>
+          <h2>Experience & Self Driven Projects</h2>
+          <p>My professional journey and some of my Creations</p>
         </motion.div>
+
+        <div className="row">
+          <div className="section-title" st>
+            <Building size={24} />
+            <h3>Professional Experience & Projects</h3>
+          </div>
+        </div>
 
         <div className="experience-content">
           {/* Professional Experience */}
           <div className="experience-section">
-            <div className="section-title">
-              <Building size={24} />
-              <h3>Professional Experience</h3>
-            </div>
-            
             <div className="timeline">
               {experiences.map((exp, index) => (
                 <motion.div
                   key={index}
-                  className={`experience-card ${exp.current ? 'current' : ''}`}
+                  className={`experience-card ${exp.current ? "current" : ""}`}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.2, duration: 0.6 }}
@@ -77,7 +173,7 @@ const Experience = () => {
                         {exp.company}
                       </div>
                     </div>
-                    
+
                     <div className="experience-meta">
                       <div className="duration">
                         <Calendar size={16} />
@@ -87,15 +183,19 @@ const Experience = () => {
                         <MapPin size={16} />
                         {exp.location}
                       </div>
-                      <span className={`type ${exp.type.toLowerCase().replace('-', '')}`}>
+                      <span
+                        className={`type ${exp.type
+                          .toLowerCase()
+                          .replace("-", "")}`}
+                      >
                         {exp.current && <Clock size={14} />}
                         {exp.type}
                       </span>
                     </div>
                   </div>
-                  
+
                   <p className="experience-description">{exp.description}</p>
-                  
+
                   <div className="achievements">
                     <h5>
                       <Star size={16} />
@@ -110,7 +210,7 @@ const Experience = () => {
                       ))}
                     </ul>
                   </div>
-                  
+
                   <div className="technologies">
                     <h5>Technologies Used:</h5>
                     <div className="tech-tags">
@@ -126,139 +226,119 @@ const Experience = () => {
             </div>
           </div>
 
-          {/* Education & Certifications */}
-          <div className="education-section">
-            {/* Education */}
-            <div className="section-title">
-              <Award size={24} />
-              <h3>Education</h3>
-            </div>
-            
+          {/* Projects */}
+          {/* <div className="d-flex flex-wrap"></div> */}
+
+          {projects.map((project) => (
             <motion.div
-              className="education-card"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -5 }}
+              key={project.title}
+              className={`project-card ${project.featured ? "featured" : ""}`}
+              variants={itemVariants}
+              whileHover={{ y: -10 }}
+              transition={{ duration: 0.3 }}
             >
-              <div className="education-header">
-                <div className="education-details">
-                  <h4>Bachelor of Technology - Computer Science Engineering</h4>
-                  <div className="institution-name">
-                    <Building size={16} />
-                    Chaudhary Charan Singh University
+              <div className="project-image">
+                {project.video ? (
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    style={{
+                      objectFit: "cover",
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  >
+                    <source src={project.video} type="video/mp4" />
+                  </video>
+                ) : (
+                  <img src={project.image} />
+                )}
+
+                <div className="project-overlay">
+                  <div className="project-links">
+                    {project.live && (
+                      <motion.a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-link live-link"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        <ExternalLink size={20} />
+                      </motion.a>
+                    )}
+                    {project.github && (
+                      <motion.a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-link"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        <Github size={20} />
+                      </motion.a>
+                    )}
                   </div>
-                  <div className="education-meta">
-                    <span className="duration">
-                      <Calendar size={16} />
-                      Aug 2021 - May 2025
-                    </span>
-                    <span className="location">
-                      <MapPin size={16} />
-                      Meerut, UP, India
-                    </span>
-                  </div>
-                </div>
-                <div className="gpa-badge">
-                  <span className="gpa-label">CGPA</span>
-                  <span className="gpa-value">7.0/10</span>
                 </div>
               </div>
 
-              <div className="coursework">
-                <h5>Relevant Coursework:</h5>
-                <div className="coursework-tags">
-                  <span className="course-tag">Data Structures & Algorithms</span>
-                  <span className="course-tag">Database Management Systems</span>
-                  <span className="course-tag">Web Technologies</span>
-                  <span className="course-tag">Software Engineering</span>
-                  <span className="course-tag">Operating Systems</span>
-                  <span className="course-tag">Computer Networks</span>
-                </div>
-              </div>
+              <div className="project-content">
+                <div className="project-badges">
+                  <h3>{project.title}</h3>
+                  <span className="project-type">{project.type}</span>
 
-              <div className="education-achievements">
-                <h5>Academic Achievements:</h5>
-                <ul>
-                  <li>
-                    <CheckCircle size={16} />
-                    Specialized in Full-Stack Development and Database Design
-                  </li>
-                  <li>
-                    <CheckCircle size={16} />
-                    Active participation in coding competitions and hackathons
-                  </li>
-                  <li>
-                    <CheckCircle size={16} />
-                    Member of Computer Science Society and Programming Club
-                  </li>
-                </ul>
+                  <span className="project-duration">{project.duration}</span>
+                </div>
+                <div className="project-features">
+                  <h4>Key Features:</h4>
+                  <ul>
+                    {project.features.map((feature, featureIndex) => (
+                      <li key={featureIndex}>{feature}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="project-tech">
+                  {project.technologies.map((tech, techIndex) => (
+                    <span key={techIndex} className="tech-tag">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="project-actions">
+                  {project.live && (
+                    <motion.a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-primary btn-sm mb-2"
+                      whileHover={{ scale: 1.0 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <ExternalLink size={16} />
+                      Live Demo
+                    </motion.a>
+                  )}
+                  {project.github && (
+                    <motion.a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-primary btn-sm mb-2"
+                      whileHover={{ scale: 1.0 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Github size={16} />
+                      View Code
+                    </motion.a>
+                  )}
+                </div>
               </div>
             </motion.div>
-
-            {/* Certifications */}
-            <div className="section-title">
-              <Award size={24} />
-              <h3>Certifications & Achievements</h3>
-            </div>
-            
-            <div className="certifications-grid">
-              <motion.div
-                className="certification-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-              >
-                <div className="cert-header">
-                  <div className="cert-icon">
-                    <CheckCircle size={20} />
-                  </div>
-                  <div className="cert-date">2024</div>
-                </div>
-                <h4>Robotics Operating System (ROS) Certification</h4>
-                <p>ROS Foundation</p>
-                <span className="verified-badge">Verified</span>
-              </motion.div>
-
-              <motion.div
-                className="certification-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1, duration: 0.5 }}
-                viewport={{ once: true }}
-              >
-                <div className="cert-header">
-                  <div className="cert-icon">
-                    <CheckCircle size={20} />
-                  </div>
-                  <div className="cert-date">2024</div>
-                </div>
-                <h4>All India Rank 11,635 in NCAT</h4>
-                <p>Naukri Campus</p>
-                <span className="verified-badge">Verified</span>
-              </motion.div>
-
-              <motion.div
-                className="certification-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-                viewport={{ once: true }}
-              >
-                <div className="cert-header">
-                  <div className="cert-icon">
-                    <CheckCircle size={20} />
-                  </div>
-                  <div className="cert-date">Ongoing</div>
-                </div>
-                <h4>400+ DSA Problems Solved</h4>
-                <p>LeetCode, HackerRank, CodeChef</p>
-                <span className="verified-badge">Verified</span>
-              </motion.div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

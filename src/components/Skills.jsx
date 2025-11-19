@@ -5,44 +5,41 @@ import '../styles/components/Skills.css';
 const Skills = () => {
   const skillCategories = [
     {
-      title: 'Frontend',
+      title: "Frontend",
       skills: [
-        { name: 'React.js', level: 90 },
-        { name: 'JavaScript', level: 85 },
-        { name: 'HTML5/CSS3', level: 90 },
-        { name: 'Redux', level: 80 },
-        { name: 'Bootstrap', level: 85 }
-      ]
+        { name: "React.js", level: 90, image: "/icons/react.png" },
+        { name: "JavaScript", level: 85, image: "/icons/javascript.jpg" },
+        { name: "HTML5", level: 90, image: "/icons/html.png" },
+        { name: "CSS3", level: 80, image: "/icons/css.png" },
+        { name: "Bootstrap", level: 85, image: "/icons/bootstrap.png" },
+        { name: "Tailwind", level: 85, image: "/icons/tailwind.png" },
+      ],
     },
+
     {
-      title: 'Backend',
+      title: "Backend",
       skills: [
-        { name: 'Node.js', level: 95 },
-        { name: 'Express.js', level: 90 },
-        { name: 'RESTful APIs', level: 95 },
-        { name: 'JWT Auth', level: 85 },
-        { name: 'Python', level: 75 }
-      ]
+        { name: "Node.js", level: 95, image: "/icons/nodejs.jpeg" },
+        { name: "Express.js", level: 90, image: "/icons/expressjs.png" },
+        { name: "JWT Auth", level: 85, image: "/icons/jwt.jpeg" },
+        { name: "MongoDB", level: 85, image: "/icons/mongodb.png" },
+        { name: "Postman", level: 75, image: "/icons/postman.png" },
+      ],
     },
+
     {
-      title: 'Database',
+      title: "Clouds & Others",
       skills: [
-        { name: 'PostgreSQL', level: 90 },
-        { name: 'MongoDB', level: 85 },
-        { name: 'MySQL', level: 80 },
-        { name: 'Sequelize ORM', level: 85 }
-      ]
+        { name: "Git/GitHub", level: 90, image: "/icons/github.png" }, // If you have git icon
+        { name: "AWS", level: 80, image: "/icons/aws.png" },
+        { name: "Docker", level: 70, image: "/icons/docker.jpg" },
+        { name: "Kubernetes", level: 70, image: "/icons/kubernetes.png" },
+        { name: "AWS EKS", level: 70, image: "/icons/awseks.jpeg" },
+        { name: "C++", level: 70, image: "/icons/c++.png" },
+      ],
     },
-    {
-      title: 'Tools & Cloud',
-      skills: [
-        { name: 'AWS', level: 80 },
-        { name: 'Git/GitHub', level: 90 },
-        { name: 'Linux', level: 75 },
-        { name: 'Docker', level: 70 }
-      ]
-    }
   ];
+
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -88,37 +85,36 @@ const Skills = () => {
               key={category.title}
               className="skill-category"
               variants={itemVariants}
+              style={{ borderTop: "5px solid #06b6d4" }}
             >
               <h3>{category.title}</h3>
+
               <div className="skills-list">
                 {category.skills.map((skill, skillIndex) => (
                   <motion.div
                     key={skill.name}
                     className="skill-item"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ 
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{
                       delay: categoryIndex * 0.1 + skillIndex * 0.05,
-                      duration: 0.5 
+                      duration: 0.4,
                     }}
                     viewport={{ once: true }}
                   >
-                    <div className="skill-info">
-                      <span className="skill-name">{skill.name}</span>
-                      <span className="skill-percentage">{skill.level}%</span>
-                    </div>
-                    <div className="skill-bar">
-                      <motion.div
-                        className="skill-progress"
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        transition={{ 
-                          delay: categoryIndex * 0.1 + skillIndex * 0.05 + 0.2,
-                          duration: 0.8,
-                          ease: "easeOut"
-                        }}
-                        viewport={{ once: true }}
-                      />
+                    <div className="skill-box">
+                      <div className="icon-wrapper">
+                        <img
+                          src={skill.image}
+                          alt={skill.name}
+                          style={{
+                            width: "45px",
+                            height: "45px",
+                            objectFit: "contain",
+                          }}
+                        />
+                      </div>
+                      <p className="skill-label">{skill.name}</p>
                     </div>
                   </motion.div>
                 ))}

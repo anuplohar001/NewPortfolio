@@ -28,7 +28,7 @@ const About = () => {
           className="section-header"
         >
           <h2>About Me</h2>
-          <p>Get to know more about my journey and passion for technology</p>
+          <p>Get to know more about my journey </p>
         </motion.div>
 
         <div className="about-content">
@@ -39,7 +39,7 @@ const About = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h3>Hello! I'm Adit Yadav</h3>
+            <h3 style={{fontFamily:"ui-sans-serif"}}>I Create What Others Imagine</h3>
             <p className="intro-text">
               A passionate Full-Stack Developer with expertise in modern web technologies. 
               I'm currently working as a Node.js Developer at LogicLoom IT Solutions, 
@@ -134,6 +134,104 @@ const About = () => {
               </div>
             </motion.div>
           </motion.div>
+
+          {/* Education & Certifications */}
+          <div className="education-section">
+            {/* Education */}
+            <div className="section-title">
+              <Award size={24} />
+              <h3>Education</h3>
+            </div>
+            
+            <motion.div
+              className="education-card"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5 }}
+            >
+              <div className="education-header">
+                <div className="education-details">
+                  <h4>Bachelor of Technology - Computer Science Engineering</h4>
+                  <div className="institution-name">
+                    <Building size={16} />
+                    Chaudhary Charan Singh University
+                  </div>
+                  <div className="education-meta">
+                    <span className="duration">
+                      <Calendar size={16} />
+                      Aug 2021 - May 2025
+                    </span>
+                    <span className="location">
+                      <MapPin size={16} />
+                      Meerut, UP, India
+                    </span>
+                  </div>
+                </div>
+                <div className="gpa-badge">
+                  <span className="gpa-label">CGPA</span>
+                  <span className="gpa-value">7.0/10</span>
+                </div>
+              </div>
+
+              
+            </motion.div>
+
+            {/* Certifications */}
+            <div className="section-title">
+              <Award size={24} />
+              <h3>Certifications & Achievements</h3>
+            </div>
+            
+            <div className="certifications-grid">
+              <motion.div
+                className="certification-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                
+              </motion.div>
+
+              <motion.div
+                className="certification-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <div className="cert-header">
+                  <div className="cert-icon">
+                    <CheckCircle size={20} />
+                  </div>
+                  <div className="cert-date">2024</div>
+                </div>
+                <h4>All India Rank 11,635 in NCAT</h4>
+                <p>Naukri Campus</p>
+                <span className="verified-badge">Verified</span>
+              </motion.div>
+
+              <motion.div
+                className="certification-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <div className="cert-header">
+                  <div className="cert-icon">
+                    <CheckCircle size={20} />
+                  </div>
+                  <div className="cert-date">Ongoing</div>
+                </div>
+                <h4>400+ DSA Problems Solved</h4>
+                <p>LeetCode, HackerRank, CodeChef</p>
+                <span className="verified-badge">Verified</span>
+              </motion.div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
