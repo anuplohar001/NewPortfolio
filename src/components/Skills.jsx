@@ -7,8 +7,8 @@ const Skills = () => {
     {
       title: "Frontend",
       skills: [
+        { name: "Next.js", level: 90, image: "/icons/nextjs.png" },
         { name: "React.js", level: 90, image: "/icons/react.png" },
-        { name: "JavaScript", level: 85, image: "/icons/javascript.jpg" },
         { name: "HTML5", level: 90, image: "/icons/html.png" },
         { name: "CSS3", level: 80, image: "/icons/css.png" },
         { name: "Bootstrap", level: 85, image: "/icons/bootstrap.png" },

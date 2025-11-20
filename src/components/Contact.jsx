@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send, Github, Linkedin } from "lucide-react";
 import "../styles/components/Contact.css";
+import { ToastContainer, toast } from "react-toastify";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -72,13 +73,12 @@ const Contact = () => {
     // Reset form
     setFormData({ name: "", email: "", subject: "", message: "" });
     setIsSubmitting(false);
-
-    // Show success message (you can implement toast notifications here)
-    alert("Message sent successfully! I'll get back to you soon.");
+    toast.success("Message Sent Successfully !!!")
   };
 
   return (
     <section id="contact" className="contact">
+      <ToastContainer/>
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

@@ -144,12 +144,12 @@ const Experience = () => {
           <p>My professional journey and some of my Creations</p>
         </motion.div>
 
-        <div className="row">
+        {/* <div className="row">
           <div className="section-title" st>
             <Building size={24} />
             <h3>Professional Experience & Projects</h3>
           </div>
-        </div>
+        </div> */}
 
         <div className="experience-content">
           {/* Professional Experience */}
@@ -232,7 +232,7 @@ const Experience = () => {
           {projects.map((project) => (
             <motion.div
               key={project.title}
-              className={`project-card ${project.featured ? "featured" : ""}`}
+              className={`project-card `}
               variants={itemVariants}
               whileHover={{ y: -10 }}
               transition={{ duration: 0.3 }}

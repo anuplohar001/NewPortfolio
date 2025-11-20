@@ -40,10 +40,10 @@ const Footer = () => {
               <div className="footer-section">
                 <h4>Quick Links</h4>
                 <ul>
-                  <li><a href="#about">About</a></li>
-                  <li><a href="#skills">Skills</a></li>
+                  <li><a href="#home">Home</a></li>
                   <li><a href="#experience">Experience</a></li>
-                  <li><a href="#projects">Projects</a></li>
+                  <li><a href="#skills">Skills</a></li>
+                  <li><a href="#education">Education</a></li>
                   <li><a href="#contact">Contact</a></li>
                 </ul>
               </div>
@@ -52,21 +52,21 @@ const Footer = () => {
                 <h4>Services</h4>
                 <ul>
                   <li>Full-Stack Development</li>
+                  <li>Deployment</li>
                   <li>API Development</li>
                   <li>Database Design</li>
                   <li>Web Applications</li>
-                  <li>Technical Consulting</li>
                 </ul>
               </div>
 
               <div className="footer-section">
                 <h4>Technologies</h4>
                 <ul>
+                  <li>Next.js</li>
                   <li>React.js & Node.js</li>
-                  <li>JavaScript & Python</li>
-                  <li>PostgreSQL & MongoDB</li>
                   <li>AWS Cloud Services</li>
-                  <li>RESTful APIs</li>
+                  <li>JavaScript</li>
+                  <li>MongoDB</li>
                 </ul>
               </div>
             </div>

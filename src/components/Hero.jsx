@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Download } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, BookMarked } from 'lucide-react';
 import '../styles/components/Hero.css';
 
 const Hero = () => {
@@ -84,8 +84,8 @@ const Hero = () => {
                 whileTap={{ scale: 0.95 }}
                 download
               >
-                <Download size={18} />
-                Download CV
+                <BookMarked size={18}/>
+                Resume
               </motion.a>
             </motion.div>
 
