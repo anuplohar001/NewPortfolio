@@ -12,19 +12,7 @@ import {
 import "../styles/components/About.css";
 
 const Education = () => {
-  const stats = [
-    { icon: Code, label: "DSA Problems Solved", value: "400+" },
-    { icon: GraduationCap, label: "CGPA", value: "7.0" },
-    { icon: Award, label: "NCAT Rank", value: "11,635" },
-  ];
-
-  const highlights = [
-    "Bachelor of Technology in Computer Science Engineering",
-    "Currently working as Node.js Developer at LogicLoom IT Solutions",
-    "All India Rank 11,635 in NCAT by Naukri Campus",
-    "Solved 400+ Data Structures and Algorithms problems",
-    "Completed Robotics Operating System (ROS) Certification",
-  ];
+ 
 
   const education = [
     {

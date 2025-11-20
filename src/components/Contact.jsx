@@ -3,7 +3,11 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send, Github, Linkedin } from "lucide-react";
 import "../styles/components/Contact.css";
 import { ToastContainer, toast } from "react-toastify";
-const serverUrl = import.meta.env.VITE_SERVER_URL;
+import axios from "axios";
+
+const brevoApiKey = import.meta.env.VITE_BREVO_API_KEY;
+const brevoSender = import.meta.env.VITE_BREVO_SENDER;
+const receiverEmail = import.meta.env.VITE_RECEIVER_EMAIL;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -66,19 +70,24 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    console.log(serverUrl)
     try {
-      const res = await fetch(
-        `${serverUrl}/api/contact`,
+      const res = await axios.post(
+        "https://api.brevo.com/v3/smtp/email",
         {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
+          sender: { name: formData.name, email:  brevoSender},
+          to: [{ email:  receiverEmail}],
+          subject: formData.subject,
+          htmlContent: `<p>${formData.message}</p>`,
+        },
+        {
+          headers: {
+            "api-key": brevoApiKey,
+            "Content-Type": "application/json",
+          },
         }
       );
 
-
-      if (!res.ok) {
+      if (res.status !== 201) {
         throw new Error("Failed to send message");
       }
 
