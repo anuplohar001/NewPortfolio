@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send, Github, Linkedin } from "lucide-react";
 import "../styles/components/Contact.css";
 import { ToastContainer, toast } from "react-toastify";
-const serverUrl = import.meta.env.VITE_API_URL;
+const serverUrl = import.meta.env.VITE_SERVER_URL;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
