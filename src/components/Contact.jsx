@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send, Github, Linkedin } from "lucide-react";
 import "../styles/components/Contact.css";
 import { ToastContainer, toast } from "react-toastify";
+const serverUrl = import.meta.env.VITE_API_URL;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
     subject: "",
     message: "",
   });
@@ -66,15 +66,33 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    console.log(serverUrl)
+    try {
+      const res = await fetch(
+        `${serverUrl}/api/contact`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    // Reset form
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    setIsSubmitting(false);
-    toast.success("Message Sent Successfully !!!")
+      if (!res.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      toast.success("Message Sent Successfully !!!");
+      // Reset form only if success
+      setFormData({ name: "", subject: "", message: "" });
+    } catch (error) {
+      console.error("Contact form error:", error);
+      toast.error("Failed to send message. Try again!");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
 
   return (
     <section id="contact" className="contact">
@@ -169,18 +187,7 @@ const Contact = () => {
                 />
               </div>
 
-              <div className="form-group">
-                <motion.input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  whileFocus={{ scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
-                />
-              </div>
+              
 
               <div className="form-group">
                 <motion.input
