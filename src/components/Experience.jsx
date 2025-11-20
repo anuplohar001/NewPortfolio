@@ -229,13 +229,16 @@ const Experience = () => {
           {/* Projects */}
           {/* <div className="d-flex flex-wrap"></div> */}
 
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <motion.div
               key={project.title}
               className={`project-card `}
               variants={itemVariants}
-              whileHover={{ y: -10 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2, duration: 0.6 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5 }}
             >
               <div className="project-image">
                 {project.video ? (
