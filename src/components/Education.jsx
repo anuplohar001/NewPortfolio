@@ -28,7 +28,7 @@ const Education = () => {
 
   const education = [
     {
-      education: "Bachelor of Technology in Computer Science Engineering",
+      education: "Bachelor of Engineering in Information Technology",
       institute: "KJ's Institute Trinity College Of Engineering and Research",
       duration: "August 2021 - June 2025",
       marks: "8.30/ 10.0",
